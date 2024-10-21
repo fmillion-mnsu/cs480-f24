@@ -13,7 +13,7 @@ This is a 2-credit elective course for Computer Science majors.
 ## Class Time and Place
 
 - **Semester/Block**: Fall 2024, Block 1 (10/21/2024 through 12/13/2024), **13** class sessions
-- **Days and Time**: Tuesdays and Thursdays, 8:00 AM - 9:50 AM ([iCalendar File](https://github.com/fmillion-mnsu/cs480-f24/raw/master/cs480.ics))
+- **Days and Time**: Tuesdays and Thursdays, 8:00 AM - 9:50 AM
 - **Location:** AH 317 ([Building Map](https://www.mnsu.edu/globalassets/maps/university/buildings/armstrong-hall-third-floor.pdf))
 
 ## Instructor
@@ -28,13 +28,13 @@ If you would like to meet with me directly, you can schedule time with me to mee
 
 ## Course Description
 
-This class will give you an opportunity to explore many aspects of cloud computing. You will understand concepts such as PaaS/IaaS, explore various cloud-based offerings such as virtual machines, databases and storage services, and understand concepts related to hosting of Web applications and server applications.
+This class will give you an opportunity to explore many aspects of cloud computing. You will understand concepts such as PaaS/IaaS, serverless functions, object storage, and hybrid deployments. We will explore various cloud-based offerings such as virtual machines, databases and storage services, and understand concepts related to hosting of Web and server applications.
 
-We will explore various public cloud offerings such as Amazon AWS and Microsoft Azure as well as smaller private offerings such as Digital Ocean, Linode, Rackspace and so on.
+We will explore various public cloud offerings such as Amazon AWS and Microsoft Azure as well as smaller private offerings such as Digital Ocean, Linode, Rackspace and so on. We will also explore managed vs. self-maintained cloud deployments.
 
 This class will include some review of Linux concepts necessary for application hosting and delivery, containerization, and distributed computing.
 
-This class will involve work in small groups of 3-4 students. Group assignments will happen during the first class session. You will have time in class to work on group projects and assignments regularly. Since free cloud computing offerings are quite limited, if at all possible I strongly suggest that at least one group member contribute a small amount of funding for purchase of cloud services. This will not be necessary for very long, nor will the expense be great (provided you are cautious with your use of cloud offerings). I anticipate you will be able to complete this course's assignments with less than $20 of cloud computing costs for the block. We will spend most of the semester using freely-available software programs to explore cloud concepts, but one of the later assignments will work best if you can utilize a public cloud service.
+This class will involve work in small groups of 3-4 students. Group assignments will happen during the first class session. You will have time in class to work on group projects and assignments regularly. Since free cloud computing offerings are quite limited, if at all possible I strongly suggest that at least one group member contribute a small amount of funding for purchase of cloud services. This will not be necessary for very long, nor will the expense be great (provided you are cautious with your use of cloud offerings). I anticipate you will be able to complete this course's assignments with less than $10 of cloud computing costs for the block. We will spend most of the semester using freely-available software programs to explore cloud concepts as much as possible, but one of the later assignments will work best if you can utilize a public cloud service.
 
 ## Prerequisites
 
@@ -96,9 +96,8 @@ Submitted | Maximum score
 --------- | -------------
 On Time | 100%
 1 day late | 85%
-2 days late | 75%
-3 days late | 65%
-4 days or more late | No credit
+2 days late | 65%
+3 days or more late | No credit
 
 Late submission days *include weekends*. (If an assignment is due on Friday at 11:59 PM, submitting on Monday counts as 3 days late!)
 
