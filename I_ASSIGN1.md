@@ -22,7 +22,7 @@ If you choose this method, you will need to sign up for an Azure account on Micr
 
 As noted above, you must provide a valid credit card to sign up for these services, and you may find a small temporary hold (typically $1 USD) placed on your card which will be reversed within a day or so. This is standard practice to verify the validity of credit cards. 
 
-> *Tip:**
+> *Tip:*
 >
 > An option for limiting cloud costs might be to use a card from a service such as <Privacy.com>. Such virtual cards can be configured with spending limits and can be manually deactivated at any time. You also do not need to provide your actual credit card to the service when using such a method.
 
@@ -34,7 +34,7 @@ Once signed in, complete all of the following tutorials:
 * [Create serverless logic with Azure functions](https://learn.microsoft.com/en-us/training/modules/create-serverless-logic-with-azure-functions/)
 * [Execute an Azure Function with Triggers](https://learn.microsoft.com/en-us/training/modules/execute-azure-function-with-triggers/)
 
-After completing all three modules, collect your completion badge links. Visit <https://learn.microsoft.com/en-us/users/me/achievements?source=docs#badges-section> and you should see the list of badges for the courses you completed. For all three of the above courses, click the Share link (![assets/mslearn_sharelink.png](Share link icon)) and choose Copy Link. do this for all three tutorials. **These three completion badge links are your submission for this assignment.**
+After completing all three modules, collect your completion badge links. Visit <https://learn.microsoft.com/en-us/users/me/achievements?source=docs#badges-section> and you should see the list of badges for the courses you completed. For all three of the above courses, click the Share link (![Share link icon](assets/mslearn_sharelink.png)) and choose Copy Link. do this for all three tutorials. **These three completion badge links are your submission for this assignment.**
 
 ## Method 2 - Use Amazon AWS.
 
