@@ -34,7 +34,7 @@ Once signed in, complete all of the following tutorials:
 * [Create serverless logic with Azure functions](https://learn.microsoft.com/en-us/training/modules/create-serverless-logic-with-azure-functions/)
 * [Execute an Azure Function with Triggers](https://learn.microsoft.com/en-us/training/modules/execute-azure-function-with-triggers/)
 
-After completing all three modules, collect your completion badge links. Visit <https://learn.microsoft.com/en-us/users/me/achievements?source=docs#badges-section> and you should see the list of badges for the courses you completed. For all three of the above courses, click the Share link (![Share link icon](assets/mslearn_sharelink.png)) and choose Copy Link. do this for all three tutorials. **These three completion badge links are your submission for this assignment.**
+After completing all three modules, collect your completion badge links. Visit <https://learn.microsoft.com/en-us/users/me/achievements?source=docs#badges-section> and you should see the list of badges for the courses you completed. For all three of the above courses, click the Share link (![Share link icon](assets/mslearn_sharelink.png)) and choose Copy Link. do this for all three tutorials. **These three completion badge links are your submission for this assignment.** ([Here](https://learn.microsoft.com/en-us/users/millionflintd-4753/achievements/hazvasf8) is an example of what you should see when you visit one of your achievement links.)
 
 ## Method 2 - Use Amazon AWS.
 
