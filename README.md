@@ -5,3 +5,4 @@
 * [Syllabus](SYLLABUS.md)
 * Individual Assignments:
   * [Assignment 1: Serverless Functions](I_ASSIGN1.md)
+* [Capstone Cloud Project](PROJECT.md)
