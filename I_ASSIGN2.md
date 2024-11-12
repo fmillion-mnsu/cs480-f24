@@ -1,65 +1,55 @@
-# Individual Assignment 1 - Cloud Functions
+# Individual Assignment 2 - S3
 
-In this exercise you will learn about Cloud Functions, also known as Functions as a Service (FaaS).
+In this exercise you will learn about S3 Object Storage.
 
-> **IMPORTANT**
+This assignment does not require you to use a live cloud service. However, it does require that you run the MinIO software locally on your machine. **The easiest and most convenient way to do this is by using Docker.** 
+
+If you can use Docker on your machine, the following Docker command will start up MinIO:
+
+    docker run -p 9000:9000 -p 9001:9001 --name minio -d quay.io/minio/minio server /data --console-address ":9001"
+
+> This configuration will not persist data if you delete the container. If you want your MinIO data to be preserved, even if you delete and recreate the container, use a **volume mount** to connect a local directory to `/data` within the container.
+
+If you are unable to run Docker or don't wish to use it for some reason, you can follow [these instructions](https://min.io/docs/minio/windows/index.html) to install MinIO natively on your platform. Use the tabs to select your platform.
+
+> **The `mc` MinIO Client**
 >
-> This exercise offers you two options for completion. One of the options - creating your own AWS or Azure account - **has the potential to incur charges** and **requires a valid credit or debit card** to sign up. There is no way around this - even if you sign up for a free trial and intend to never use more than the free tier's resources, you are still required to provide a credit card.
+> There is also a command line tool that ships with MinIO called `mc`. This tool can be used to interact with MinIO from the command line and is very useful for scripting and automation.
 >
-> Since I acknowledge and understand that you may be uncomfortable providing payment information, or you may not even have sufficient funds for the temporary hold, I offer an alternative method via AWS Educate that does not require a credit card. 
+> You should not need to use `mc` for this project, but if you want to install it to learn how it works, [here are the instructions](https://min.io/docs/minio/linux/reference/minio-mc.html).
+
+## Assignment Requirements
+
+You will build a simple application **in a language of your choice** that can:
+
+* Upload a file to your S3 server
+* Download a file from your S3 server
+* List available files on the server
+
+You may use any appropriate language you feel comfortable coding in - Python, Java, C#, NodeJS, etc. are all acceptable.
+
+Since S3 can actually be used to host a website directly, you can upload an HTML file to your S3 server using your tool, or even get creative and auto-generate some HTML before uploading it. You can then view the HTML in a browser by simply pointing your browser at the correct URL within the S3 server!
+
+Your application must contain the following characteristics:
+
+* Allow the user to choose which function to run - upload, download or list. 
+  * You can implement this as three separate scripts if you find it easier, or you could implement a GUI-based application in e.g. Windows Forms or TKinter to make it one application
+* Provide a mechanism for specifying the four key values needed for an S3 server: the URL, the bucket name, the **access key** (analogous to a username), and the **secret key** (analogous to a password).
+  * You could prompt the user for these or you could allow the user to provide them some other way - e.g. environment variables, command line options, a config file, etc.
+* Follow basic best coding practices - use appropriate method/function names, use classes where appropriate and so on.
+
+> **Important**: Whether you run MinIO directly or via Docker, you should be able to use `http://localhost:9000/<bucket_name>` as the S3 base URL. The access code and secret key default to `minioadmin` and `minioadmin` for the root user.
 >
-> The AWS Educate method involves the AWS Educate Lambda Fundamentals course, for which you can obtain a certificate URL that you can use as your assignment submission to indicate successful completion of the exercise. However, I do not want to restrict you to only using AWS - Azure's Cloud Functions service is equally useful to learn and understand, but like AWS, Azure requires payment information to create an account even for free usage.
+> You can access the admin console by visiting <http://localhost:9001>.
 >
-> See the assignment for details, but be aware that you **do not** need to sign up with payment information if you feel uncomfortable doing so - it will not have any impact on your grade on this assignment or in this course.
+> The MinIO server does not come with any buckets created. **Use the admin console to create a bucket** - you can't upload any files to an S3 server without a bucket!
 
-There are two options you have for how to complete this exercise:
+For whichever language you are using, **investigate available libraries for interacting with S3**. For example, Python has [minio Python library](https://min.io/docs/minio/linux/developers/python/minio-py.html) offering Pythonic access to S3 servers (including, *but not limited to*, MinIO). If your language offers a library or even multiple libraries, use them - don't bother with crafting HTTP requests by hand! (It's tedious, error prone and will make your the project harder to complete!)
 
-## Method 1 - Use Microsoft Azure and Microsoft Learn.
+## Submission
 
-If you choose this method, you will need to sign up for an Azure account on Microsoft Azure. You may use your StarID login for this if you choose, or you may use a personal E-mail. **I strongly recommend using your StarID, as you will need to do so for the Microsoft Learn steps below - being logged into two Microsoft accounts can be quite confusing and may create issues.**
+Zip your code files and submit them to the D2L dropbox.
 
-* [Sign up for a Microsoft Azure account](https://azure.microsoft.com/en-us/pricing/purchase-options/azure-account)
+The due date for this assignment is **Friday, November 22** at **11:59 PM**.
 
-As noted above, you must provide a valid credit card to sign up for these services, and you may find a small temporary hold (typically $1 USD) placed on your card which will be reversed within a day or so. This is standard practice to verify the validity of credit cards. 
-
-> *Tip:*
->
-> An option for limiting cloud costs might be to use a card from a service such as <Privacy.com>. Such virtual cards can be configured with spending limits and can be manually deactivated at any time. You also do not need to provide your actual credit card to the service when using such a method.
-
-Create a Microsoft Learn account profile. To do so, visit <https://learn.microsoft.com> and click the Sign In link in the top right corner. **Log in to your Star ID account - i.e. `<starid>@go.minnstate.edu`.**
-
-Once signed in, complete all of the following tutorials:
-
-* [Introduction to Azure Functions](https://learn.microsoft.com/en-us/training/modules/intro-azure-functions/)
-* [Create serverless logic with Azure functions](https://learn.microsoft.com/en-us/training/modules/create-serverless-logic-with-azure-functions/)
-* [Execute an Azure Function with Triggers](https://learn.microsoft.com/en-us/training/modules/execute-azure-function-with-triggers/)
-
-After completing all three modules, collect your completion badge links. Visit <https://learn.microsoft.com/en-us/users/me/achievements?source=docs#badges-section> and you should see the list of badges for the courses you completed. For all three of the above courses, click the Share link (![Share link icon](assets/mslearn_sharelink.png)) and choose Copy Link. do this for all three tutorials. **These three completion badge links are your submission for this assignment.** ([Here](https://learn.microsoft.com/en-us/users/millionflintd-4753/achievements/hazvasf8) is an example of what you should see when you visit one of your achievement links.)
-
-## Method 2 - Use Amazon AWS.
-
-If you choose this method, you will need to sign up for an Amazon AWS account. I strongly recommend using your school E-mail address for the account.
-
-* [Sign up for an Amazon AWS account](https://signin.aws.amazon.com/signup?request_type=register)
-
-As noted above, you must provide a valid credit card to sign up for these services, and you may find a small temporary hold (typically $1 USD) placed on your card which will be reversed within a day or so. This is standard practice to verify the validity of credit cards. 
-
-> *Tip:**
->
-> An option for limiting cloud costs might be to use a card from a service such as <Privacy.com>. Such virtual cards can be configured with spending limits and can be manually deactivated at any time. You also do not need to provide your actual credit card to the service when using such a method.
-
-Follow *both* the [Create Your First Lambda Function](https://docs.aws.amazon.com/lambda/latest/dg/getting-started.html) tutorial and the [Use Lambda with API Gateway](https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway-tutorial.html) tutorial. 
-
-Take **screenshots** along the way showing all of the steps working. In particular, show your function's code, the configuration sections, and some applicable example of the functions running. **These screenshots are your submission for this assignment.**
-
-## Method 3 - Use AWS Educate
-
-AWS Educate is an option that **does not require you to provide any payment information**. This platform offers internal free sandboxes for you to work with to complete the training. You will have less freedom than the other two options (i.e. you can't leave your function running, etc).
-
-Complete the [Getting Started with Serverless](https://awseducate.instructure.com/courses/905) course.
-
-Your submission consists of **proof of completion**. AWS Educate has recently changed and I cannot find specific information on what proof you may be able to obtain, but you may consider a screenshot of your completion *including identifying information showing you are the one who completed the course* (hint: search for browser plugins that let you take full-page screenshots if necessary).
-
-## Due Date
-
-This assignment is due on **Sunday, November 10th** at **11:59 PM**.
+This is an **individual assignment** - everyone must submit their own work. You may help each other but you may not share code with classmates.
