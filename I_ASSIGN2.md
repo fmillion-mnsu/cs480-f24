@@ -53,3 +53,9 @@ Zip your code files and submit them to the D2L dropbox.
 The due date for this assignment is **Friday, November 22** at **11:59 PM**.
 
 This is an **individual assignment** - everyone must submit their own work. You may help each other but you may not share code with classmates.
+
+## Resources
+
+* [Amazon's official S3 API Reference](https://docs.aws.amazon.com/AmazonS3/latest/API/Type_API_Reference.html)
+* [MinIO Python client library reference](https://min.io/docs/minio/linux/developers/python/API.html)
+* [MinIO SDK for .NET (C#)](https://min.io/docs/minio/linux/developers/dotnet/minio-dotnet.html)
