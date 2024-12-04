@@ -8,9 +8,9 @@ Included are:
 
     > Note that this is **not** optimal way to build microservices. Typically, you would copy *only* the files needed for each specific microservice to each sub-container.
 
-* `compose-1.yml`: A Docker Compose file showing how to define your microservices. In this file, each microservice is exposed on its own port for testing purposes. **This is NOT your final deliverable compose file - it is only to help you test your services!**
+* `compose-testing.yml`: A Docker Compose file showing how to define your microservices. In this file, each microservice is exposed on its own port for testing purposes. **This is NOT your final deliverable compose file - it is only to help you test your services!**
 
-* `compose-2.yml`: A Docker Compose file similar to the above, but incorporating the Traefik reverse proxy. In this example, the individual microservices are not exposed directly to the Internet; they are only accessible via the Traefik proxy, which is able to both merge all the services into one virtual "server" as well as potentially impose access restrictions, load balancing and more. **This file, modified for your project, is for your deliverable.**
+* `compose-with-traefik.yml`: A Docker Compose file similar to the above, but incorporating the Traefik reverse proxy. In this example, the individual microservices are not exposed directly to the Internet; they are only accessible via the Traefik proxy, which is able to both merge all the services into one virtual "server" as well as potentially impose access restrictions, load balancing and more. **This file, modified for your project, is for your deliverable.**
 
     > For either compose file, you should rename it to `compose.yml` in your project directory before trying to use it. While you can use `docker compose -f some-other-filename.yml ...`, this is cumbersome and prone to errors or frustration. `compose.yml` is the default filename that Docker Compose will always search for.
 

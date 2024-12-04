@@ -42,6 +42,20 @@ You can accomplish this using just one Dockerfile by using named targets. Altern
 
 The [sample files](FINAL_SAMPLE/) for the project will illustrate a Dockerfile that builds multiple Python application services.
 
+To build a Dockerfile with a specific image name and a specific target, use the command
+
+    docker build -t <image_name> --target <target_name> .
+
+For example, to build the `login` target into a container image called `login_svc`:
+
+    docker build -t login_svc --target login .
+
+And to run that service for testing, you can use:
+
+    docker run -it --rm -p 5000:5000 login_svc
+
+> **Hint:** Flask listens on port 5000 by default, so the `-p` option here tells Docker to expose port 5000 for access on your machine. You can then use Postman and point it at `http://localhost:5000` to test your API.
+
 **Test** each service independently using Postman or a similar API testing tool by running each built container and running appropriate queries against it. The sample files contain comments with details to help you with this process.
 
 > **Hint**: If you do decide to use a shared database file or SQLite database, make sure you provide a **volume mount** for each container when running it, so they can all access the same data file!
@@ -52,13 +66,21 @@ In this phase, you will setup a Docker Compose file that runs *all* of your micr
 
 > **Note**: In production environments, such functionalities are typically managed by a more powerful container orchestration framework such as Kubernetes, or by a platform-specific orchestration system designed by and for a particular cloud infrastructure or service.
 
-The [sample files](FINAL_SAMPLE) contain an example Compose file that will illustrate how to set up a stack.
+The [sample files](FINAL_SAMPLE) contain an example Compose file (`compose-testing.yml`) that will illustrate how to set up a stack.
+
+To run a Compose stack:
+
+    docker compose up -d
+
+To stop a Compose stack:
+
+    docker compose down
 
 ## Phase 5: Adding the Reverse Proxy and Final Testing
 
 The final phase of the project is to add in a configuration for a **reverse proxy**, which will provide a single virtual "server" that offers all of the endpoints provided by your microservices at one place. 
 
-The file `compose-with-traefik.yml` in the [sample fies](FINAL_SAMPLE) illustrates how to add the Traefik proxy to your Compose file. Additionally, you need to provide a Traefik configuration file. You can essentially use the one in the samples as-is, but you may need to make slight modifications if you choose to use different paths for your data files.
+The file `compose-with-traefik.yml` in the [sample fies](FINAL_SAMPLE) illustrates how to add the Traefik proxy to your Compose file. The example file shows how you can setup Traefik without needing to provide a configuration file - the configuration is provided by environment variables. For this project, the provided config is sufficient and should allow you to both test your services using `http://localtest.me` as well as view the traefik API at `<http://traefik.localtest.me>`.
 
 ## Deliverable
 
