@@ -1,0 +1,22 @@
+# This Compose file builds two services - "login" and "user" - and exposes each via a Traefik proxy.
+
+services:
+
+  traefik: # this is the reverse proxy service - it is the only one that will be exposed to be accessed directly by other machines.
+    image: "traefik:v2.11"
+    ports:
+      - "80:80"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+
+  login:
+    build: # this section specifies the context (working directory), the Dockerfile name itself, and the *target* to build for this service.
+      context: .
+      dockerfile: Dockerfile
+      target: login_service
+
+  user:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: user_service

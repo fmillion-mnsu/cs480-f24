@@ -1,0 +1,17 @@
+# This Compose file builds two services - "login" and "user" - and exposes each independently.
+
+services:
+  login:
+    build: # this section specifies the context (working directory), the Dockerfile name itself, and the *target* to build for this service.
+      context: .
+      dockerfile: Dockerfile
+      target: login_service
+    ports:
+      - "5000:5000"
+  user:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: user_service
+    ports:
+      - "5001:5000"
