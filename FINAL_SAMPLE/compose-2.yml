@@ -1,22 +1,44 @@
 # This Compose file builds two services - "login" and "user" - and exposes each via a Traefik proxy.
 
+# YOU CAN'T USE THIS FILE AS-IS - it needs many changes to make it work for your *specific* project!
+
 services:
 
   traefik: # this is the reverse proxy service - it is the only one that will be exposed to be accessed directly by other machines.
     image: "traefik:v2.11"
     ports:
       - "80:80"
-    volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock"
+    environment: # this setup allows traefik to work without needing a configuration file.
+      - TRAEFIK_ENTRYPOINTS_WEB_ADDRESS=:80 # listen on port 80
+      - TRAEFIK_LOG_LEVEL=DEBUG # log verbose output
+      - TRAEFIK_PROVIDERS_DOCKER_WATCH=true # watch the Docker API for new containers
+      - TRAEFIK_PROVIDERS_DOCKER_EXPOSEDBYDEFAULT=true # expose containers by default
+      - TRAEFIK_API_DASHBOARD=true # enable the dashboard
+      - TRAEFIK_HTTP_ROUTERS_API_RULE=Host(`traefik.localtest.me`) # set up a router for the dashboard
+      - TRAEFIK_HTTP_ROUTERS_API_ENTRYPOINTS=web # set the entrypoint for the dashboard
+      - TRAEFIK_HTTP_ROUTERS_API_SERVICE=api@internal # set the service for the dashboard
+      volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock" # so Traefik can monitor Docker for new containers
 
   login:
     build: # this section specifies the context (working directory), the Dockerfile name itself, and the *target* to build for this service.
       context: .
       dockerfile: Dockerfile
       target: login_service
+    labels:
+      # This label tells Traefik to forward connections to "localtest.me" that have a URL path
+      # starting with "/login" to this service.
+      # For EACH service you define, you need to change the name of the router (i.e. "routers.***.rule")
+      # and you need to set the PathPrefix value to an appropriate value (e.g. "/login", "/user", etc.)
+      # Also please observe that the quotes in the rules are *backticks*, not regular apostrophes.
+      # Backtick is typically on the key to the left of the "1" key on most keyboards.
+      - traefik.http.routers.login.rule: Host(`localtest.me`) && PathPrefix(`/login`)
 
+  # Another service
   user:
     build:
       context: .
       dockerfile: Dockerfile
       target: user_service
+    labels:
+      - traefik.http.routers.login.rule: Host(`localtest.me`) && PathPrefix(`/user`)

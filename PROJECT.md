@@ -67,3 +67,5 @@ Your final deliverable consists of the following:
 * Your planning documentation ("mini-RAD")
 * All source code for your individual microservices
 * Compose file that will build and run your services and the Traefik proxy
+
+The deliverable is due on **Thursday, December 12th** at 11:59 PM.
