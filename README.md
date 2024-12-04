@@ -6,4 +6,5 @@
 * Individual Assignments:
   * [Assignment 1: Serverless Functions](I_ASSIGN1.md)
   * [Assignment 2: S3 Storage](I_ASSIGN2.md)
-* [Capstone Cloud Project](PROJECT.md)
+* [Virtual Machine Group Project](G_ASSIGN.md)
+* [Capstone Cloud Group Project](PROJECT.md)
